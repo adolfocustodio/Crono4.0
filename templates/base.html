@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>
+        {% block titulo %}
+        Crono
+        {% endblock titulo %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="p-3">
+        <h1 class="fs-3 fw-bold mb-0">Crono</h1>
+    </header>
+    <main class="p-3">
+        {% block main %}
+        {% endblock main %}
+    </main>
+</body>
+</html>
