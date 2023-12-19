@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+        <tr>
+            <td>{{ object.titulo }}</td>
+            <td>
+                <a class="me-3" href="{% url 'postagens:postagem_editar' object.pk %}"><i class="bi bi-pencil-square"></i></a>
+                <a data-bs-toggle="modal" href="#deleteModal"><i class="bi bi-x-lg"></i></a>
+                {% include 'postagens/postagem_confirm_delete.html' %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td class="text-center" colspan="2">
+                <p class="mb-0">Não existem postagens cadastradas</p>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div>
+    <a href="{% url 'postagens:postagem_criar' %}"><button class="btn_azul">Novo</button></a>
+</div>
+{% endblock %}
