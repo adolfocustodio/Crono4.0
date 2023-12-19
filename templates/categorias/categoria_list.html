@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+        <tr>
+            <td>{{ object.nome }}</td>
+            <td>
+                <a class="me-3" href="{% url 'categorias:categoria_editar' object.pk %}"><i class="bi bi-pencil-square"></i></a>
+                <a data-bs-toggle="modal" href="#deleteModal"><i class="bi bi-x-lg"></i></a>
+                {% include 'categorias/categoria_confirm_delete.html' %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td class="text-center" colspan="2">
+                <p class="mb-0">Não existem categorias cadastradas</p>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div>
+    <a href="{% url 'categorias:categoria_criar' %}"><button class="btn_azul">Novo</button></a>
+</div>
+{% endblock %}

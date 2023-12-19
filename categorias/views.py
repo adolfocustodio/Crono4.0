@@ -17,7 +17,7 @@ class CategoriaListar(generic.ListView):
 class CategoriaEditar(generic.UpdateView):
     form_class = CategoriaForm
     model = Categoria
-    success_url = reverse_lazy('core:categoria_listar')
+    success_url = reverse_lazy('categorias:categoria_listar')
 
 
 class CategoriaExcluir(generic.DeleteView):
