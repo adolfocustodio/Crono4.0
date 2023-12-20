@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 class PostagemCriar(LoginRequiredMixin, AdministradorPermission, ProfessorPermission, generic.CreateView):
     form_class = PostagemForm
     model = Postagem
-    success_url = reverse_lazy('inicio:inicio')
+    success_url = reverse_lazy('core:inicio')
 
 
 class PostagemListar(LoginRequiredMixin, AdministradorPermission, generic.ListView):

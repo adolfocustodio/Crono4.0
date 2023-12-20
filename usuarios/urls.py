@@ -1,10 +1,10 @@
 from django.urls import path, include
-from .views import UsuarioListar
+from .views import UsuarioListar, AdministradorCriar, ProfessorCriar
 
 
 app_name = 'usuarios'
 urlpatterns = [
     path('listar/', UsuarioListar.as_view(), name='usuario_listar'),
-    path('accounts/', include('django.contrib.auth.urls'))
-
+    path('administrador/criar', AdministradorCriar.as_view(), name='admiministrador_criar'),
+    path('professor/criar', ProfessorCriar.as_view(), name='professor_criar')
 ]

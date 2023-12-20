@@ -16,6 +16,13 @@
         <a href="{% if request.path != '/inicio/' %}{% url 'core:inicio' %}{% endif %}">
             <h1 class="fs-3 fw-bold mb-0">Crono</h1>
         </a>
+        {% if user.is_authenticated %}
+        <a class="text-white fw-medium fs-5" data-bs-toggle="dropdown" href="" role="button">Perfil</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Sair</a></li>
+        </ul>
+        {% endif %}
+
     </header>
     <main class="p-3">
         {% block main %}

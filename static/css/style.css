@@ -25,6 +25,7 @@ header {
     color: var(--branco);
     display: flex;
     height: 66px;
+    justify-content: space-between;
 }
 
 

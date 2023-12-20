@@ -8,10 +8,10 @@ class UsuarioAdmin(admin.ModelAdmin):
 
 
 @admin.register(Administrador)
-class AdministradorAdmin(UsuarioAdmin):
-    pass
+class AdministradorAdmin(admin.ModelAdmin):
+    list_display=('username', 'email', 'nome')
 
 
 @admin.register(Professor)
 class ProfessorAdmin(admin.ModelAdmin):
-    list_display=('bio', 'categoria')
+    list_display=('username', 'email', 'nome', 'bio', 'categoria')

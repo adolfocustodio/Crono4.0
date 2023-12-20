@@ -18,7 +18,7 @@ class Administrador(Usuario):
 
 
 class Professor(Usuario):
-    bio = models.TextField(max_length=500)
+    bio = models.TextField(max_length=500, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, blank=True, null=True)
 
     def save(self, *args, **kwargs):
