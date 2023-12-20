@@ -28,14 +28,28 @@ header {
 }
 
 
-main {
-    background-color: var(--branco2);
-    min-height: calc(100vh - 66px);
+header h1 {
+    color: var(--branco);
 }
 
 
 a {
     text-decoration: none;
+}
+
+
+main {
+    align-items: center;
+    background-color: var(--branco2);
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 66px);
+}
+
+
+.postagem {
+    background-color: var(--branco);
+    width: 750px;
 }
 
 
@@ -55,11 +69,16 @@ a {
 }
 
 
+hr {
+    color: var(--azul);
+}
+
+
 tbody tr:hover td {
     background-color: var(--azul_claro);
 }
 
 
-hr {
-    color: var(--azul);
+form {
+    width: 750px;
 }

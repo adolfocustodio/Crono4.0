@@ -13,7 +13,9 @@
 </head>
 <body>
     <header class="p-3">
-        <h1 class="fs-3 fw-bold mb-0">Crono</h1>
+        <a href="{% if request.path != '/inicio/' %}{% url 'core:inicio' %}{% endif %}">
+            <h1 class="fs-3 fw-bold mb-0">Crono</h1>
+        </a>
     </header>
     <main class="p-3">
         {% block main %}
