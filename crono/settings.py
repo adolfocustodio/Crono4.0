@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'categorias',
-    'postagens'
+    'postagens',
+    'usuarios'
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crono.wsgi.application'
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
+LOGIN_REDIRECT_URL = 'core:inicio'
+
+LOGOUT_REDIRECT_URL = 'core:inicio'
 
 
 DATABASES = {
@@ -88,10 +95,14 @@ USE_I18N = True
 USE_TZ = True
 
 
-
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

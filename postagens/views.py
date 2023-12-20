@@ -1,25 +1,27 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from usuarios.permissions import AdministradorPermission, ProfessorPermission
 from django.views import generic
 from .models import Postagem
 from .forms import PostagemForm
 from django.urls import reverse_lazy
 
 
-class PostagemCriar(generic.CreateView):
+class PostagemCriar(LoginRequiredMixin, AdministradorPermission, ProfessorPermission, generic.CreateView):
+    form_class = PostagemForm
+    model = Postagem
+    success_url = reverse_lazy('inicio:inicio')
+
+
+class PostagemListar(LoginRequiredMixin, AdministradorPermission, generic.ListView):
+    model = Postagem
+
+
+class PostagemEditar(LoginRequiredMixin, AdministradorPermission, generic.UpdateView):
     form_class = PostagemForm
     model = Postagem
     success_url = reverse_lazy('postagens:postagem_listar')
 
 
-class PostagemListar(generic.ListView):
-    model = Postagem
-
-
-class PostagemEditar(generic.UpdateView):
-    form_class = PostagemForm
-    model = Postagem
-    success_url = reverse_lazy('postagens:postagem_listar')
-
-
-class PostagemExcluir(generic.DeleteView):
+class PostagemExcluir(LoginRequiredMixin, AdministradorPermission, generic.DeleteView):
     model = Postagem
     success_url = reverse_lazy('postagens:postagem_listar')

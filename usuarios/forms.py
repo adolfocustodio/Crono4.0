@@ -1,11 +1,12 @@
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import Usuario
+from .models import Administrador, Professor
 
 
-class AdministradorRegistrationForm(forms.UserCreationForm):
+class AdministradorRegistrationForm(UserCreationForm):
 
     class Meta:
-        model = Usuario
+        model = Administrador
         fields = ('username', 'email', 'nome', 'password1', 'password2')
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
@@ -25,10 +26,10 @@ class AdministradorRegistrationForm(forms.UserCreationForm):
         return user
 
 
-class ProfessorRegistrationForm(forms.UserCreationForm):
+class ProfessorRegistrationForm(UserCreationForm):
 
     class Meta:
-        model = Usuario
+        model = Professor
         fields = ('username', 'email', 'nome', 'bio', 'categoria', 'password1', 'password2')
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
